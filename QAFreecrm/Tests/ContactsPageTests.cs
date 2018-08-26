@@ -21,7 +21,7 @@ namespace QAFreecrm.Tests
         [SetUp]
         public void SetUp()
         {
-            Initialization(BrowserType.Firefox);
+            Initialization(BrowserType.Safari);
             loginPage = new LoginPage();
             testUtil = new TestUtil();
             contactsPage = new ContactsPage();
@@ -32,7 +32,6 @@ namespace QAFreecrm.Tests
         }
 
         [Test]
-        [Category("Smoke"), Category("Weekly")]
         public void VerifyContactsLabel()
         {
             try
