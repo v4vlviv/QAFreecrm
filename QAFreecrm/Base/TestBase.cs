@@ -17,7 +17,6 @@ namespace QAFreecrm.Base
         Chrome,
         Firefox,
         Opera,
-        Safari,
         IE
     }
 
@@ -101,17 +100,16 @@ namespace QAFreecrm.Base
                     }
                 case BrowserType.Firefox:
                     {
-                        driver = new FirefoxDriver();
+                        FirefoxDriverService service = FirefoxDriverService.CreateDefaultService();
+                        service.FirefoxBinaryPath = @"C:\Program Files\Mozilla Firefox\firefox.exe";
+                        service.HideCommandPromptWindow = true;
+                        service.SuppressInitialDiagnosticInformation = true;                      
+                        driver = new FirefoxDriver(service);
                         break;
                     }
                 case BrowserType.Opera:
                     {
                         driver = new OperaDriver();
-                        break;
-                    }
-                case BrowserType.Safari:
-                    {
-                        driver = new SafariDriver();
                         break;
                     }
                 case BrowserType.IE:

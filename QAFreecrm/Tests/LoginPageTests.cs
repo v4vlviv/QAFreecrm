@@ -16,6 +16,7 @@ namespace QAFreecrm.Tests
         LoginPage loginPage;
         HomePage homePage;
         TestUtil testUtil;
+        BrowserType _browserType;
 
         readonly string TITLE = "#1 Free CRM software in the cloud for sales and service";
         static readonly string PATH = @"D:\C#_TestProject\QAFreecrm\QAFreecrm\TestData\TestDataCsv.csv";
@@ -25,7 +26,12 @@ namespace QAFreecrm.Tests
         [SetUp]
         public void SetUp()
         {
-            Initialization(BrowserType.Chrome);
+            var browserType = TestContext.Parameters.Get("Browser", "Chrome");
+            //Parse the browser Type, since its Enum
+            _browserType = (BrowserType)Enum.Parse(typeof(BrowserType), browserType);
+            //Pass it to browser
+            Initialization(_browserType);
+            //Initialization(BrowserType.Chrome);
             loginPage = new LoginPage();
             testUtil = new TestUtil();
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);

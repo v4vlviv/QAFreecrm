@@ -27,7 +27,7 @@ namespace QAFreecrm.Tests
             _browserType = (BrowserType)Enum.Parse(typeof(BrowserType), browserType);
             //Pass it to browser
             Initialization(_browserType);
-            //Initialization(BrowserType.Safari);
+            //Initialization(BrowserType.Chrome);
 
             loginPage = new LoginPage();
             testUtil = new TestUtil();
