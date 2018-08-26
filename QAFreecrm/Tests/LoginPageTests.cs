@@ -25,7 +25,7 @@ namespace QAFreecrm.Tests
         [SetUp]
         public void SetUp()
         {
-            Initialization(BrowserType.Firefox);
+            Initialization(BrowserType.Chrome);
             loginPage = new LoginPage();
             testUtil = new TestUtil();
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
