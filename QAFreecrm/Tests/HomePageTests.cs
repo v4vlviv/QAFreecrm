@@ -15,14 +15,20 @@ namespace QAFreecrm.Tests
         HomePage homePage;
         LoginPage loginPage;
         TestUtil testUtil;
-
+        BrowserType _browserType;
 
         readonly string TITLE = "CRMPRO";
 
         [SetUp]
         public void SetUp()
         {
-            Initialization(BrowserType.Chrome);
+            var browserType = TestContext.Parameters.Get("Browser", "Chrome");
+            //Parse the browser Type, since its Enum
+            _browserType = (BrowserType)Enum.Parse(typeof(BrowserType), browserType);
+            //Pass it to browser
+            Initialization(_browserType);
+
+            //Initialization(BrowserType.Chrome);
             homePage = new HomePage();
             loginPage = new LoginPage();
             testUtil = new TestUtil();

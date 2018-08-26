@@ -17,11 +17,18 @@ namespace QAFreecrm.Tests
         TestUtil testUtil;
         ContactsPage contactsPage;
         HomePage homePage;
+        BrowserType _browserType;
 
         [SetUp]
         public void SetUp()
         {
-            Initialization(BrowserType.Safari);
+            var browserType = TestContext.Parameters.Get("Browser", "Chrome");
+            //Parse the browser Type, since its Enum
+            _browserType = (BrowserType)Enum.Parse(typeof(BrowserType), browserType);
+            //Pass it to browser
+            Initialization(_browserType);
+            //Initialization(BrowserType.Safari);
+
             loginPage = new LoginPage();
             testUtil = new TestUtil();
             contactsPage = new ContactsPage();
