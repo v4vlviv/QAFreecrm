@@ -22,7 +22,7 @@ namespace QAFreecrm.Tests
         [SetUp]
         public void SetUp()
         {
-            Initialization(BrowserType.Firefox);
+            Initialization(BrowserType.Chrome);
             homePage = new HomePage();
             loginPage = new LoginPage();
             testUtil = new TestUtil();
