@@ -40,6 +40,10 @@ namespace QAFreecrm.Pages
             return driver.Title;
         }
 
+        /// <summary>
+        /// delete             Thread.Sleep(2000);!!!!!!!
+        /// </summary>
+        /// <returns></returns>
         public bool ValidateCRMImage()
         {
             return crmLogo.Displayed;

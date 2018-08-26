@@ -5,10 +5,10 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Opera;
 using OpenQA.Selenium.Safari;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using NUnit.Framework.Interfaces;
+using NUnit.Framework;
 
 namespace QAFreecrm.Base
 {
@@ -26,8 +26,58 @@ namespace QAFreecrm.Base
 
         public static IWebDriver driver;
         public static readonly int TIMESPAN = 20;
-        public static readonly int TIMEWAIT = 5;
+        public static readonly int TIMEWAIT = 10;
         public static readonly string URL = "https://www.freecrm.com/index.html";
+
+        public ExtentReports extent;
+        public ExtentTest test;
+
+        [OneTimeSetUp]
+        protected void Setup()
+        {
+            var dir = TestContext.CurrentContext.TestDirectory + "\\";
+            var fileName = this.GetType().ToString() + ".html";
+            var htmlReporter = new ExtentHtmlReporter(dir + fileName);
+
+            extent = new ExtentReports();
+            extent.AttachReporter(htmlReporter);
+
+        }
+
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
+        {
+            var status = TestContext.CurrentContext.Result.Outcome.Status;
+            var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)
+                    ? ""
+                    : string.Format("{0}", TestContext.CurrentContext.Result.StackTrace);
+            Status logstatus;
+
+            switch (status)
+            {
+                case TestStatus.Failed:
+                    logstatus = Status.Fail;
+                    break;
+                case TestStatus.Inconclusive:
+                    logstatus = Status.Warning;
+                    break;
+                case TestStatus.Skipped:
+                    logstatus = Status.Skip;
+                    break;
+                default:
+                    logstatus = Status.Pass;
+                    break;
+            }
+
+            test.Log(logstatus, "Test ended with " + logstatus + stacktrace);
+            extent.Flush();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            driver.Quit();
+        }
 
         public static void Initialization(BrowserType browserType)
         {
