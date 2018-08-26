@@ -99,12 +99,8 @@ namespace QAFreecrm.Base
                         break;
                     }
                 case BrowserType.Firefox:
-                    {
-                        FirefoxDriverService service = FirefoxDriverService.CreateDefaultService();
-                        service.FirefoxBinaryPath = @"C:\Program Files\Mozilla Firefox\firefox.exe";
-                        service.HideCommandPromptWindow = true;
-                        service.SuppressInitialDiagnosticInformation = true;                      
-                        driver = new FirefoxDriver(service);
+                    {                   
+                        driver = new FirefoxDriver();
                         break;
                     }
                 case BrowserType.Opera:
