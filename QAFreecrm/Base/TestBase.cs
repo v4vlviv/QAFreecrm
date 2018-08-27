@@ -20,10 +20,8 @@ namespace QAFreecrm.Base
         IE
     }
 
-    class TestBase
-    {
-
-        public static IWebDriver driver;
+    class TestBase:DriverInit
+    {        
         public static readonly int TIMESPAN = 20;
         public static readonly int TIMEWAIT = 10;
         public static readonly string URL = "https://www.freecrm.com/index.html";

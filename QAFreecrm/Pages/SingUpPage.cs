@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QAFreecrm.Pages
 {
-    class SingUpPage: TestBase
+    class SingUpPage: DriverInit
     {
     }
 }

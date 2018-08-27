@@ -11,12 +11,11 @@ using System.Threading.Tasks;
 
 namespace QAFreecrm.Tools
 {
-    class TestUtil : TestBase
+    class TestUtil : DriverInit
     {
         public void SwichToFrame()
         {
             driver.SwitchTo().Frame("mainpanel");
-
         }
 
     }

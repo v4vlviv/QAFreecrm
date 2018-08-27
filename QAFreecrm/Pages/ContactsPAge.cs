@@ -4,7 +4,7 @@ using QAFreecrm.Base;
 
 namespace QAFreecrm.Pages
 {
-    class ContactsPage: TestBase
+    class ContactsPage: DriverInit
     {
 
         [FindsBy(How = How.XPath, Using = "//td[contains(text(), 'Contacts')]")]

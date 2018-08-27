@@ -83,6 +83,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\DriverInit.cs" />
     <Compile Include="Base\TestBase.cs" />
     <Compile Include="Pages\ContactsPage.cs" />
     <Compile Include="Pages\DealsPage.cs" />

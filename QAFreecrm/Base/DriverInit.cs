@@ -1,13 +1,14 @@
-﻿using QAFreecrm.Base;
+﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QAFreecrm.Pages
+namespace QAFreecrm.Base
 {
-    class DealsPage: DriverInit
+    public class DriverInit
     {
+        protected static IWebDriver driver;
     }
 }

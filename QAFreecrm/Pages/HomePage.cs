@@ -9,7 +9,7 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace QAFreecrm.Pages
 {
-    class HomePage: TestBase
+    class HomePage: DriverInit
     {
         [FindsBy(How = How.XPath, Using = "//td[contains(text(), 'User:')]")]
         IWebElement userNameLabel;

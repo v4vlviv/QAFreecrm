@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace QAFreecrm.Pages
 {
-    class LoginPage : TestBase
+    class LoginPage : DriverInit
     {
 
         [FindsBy(How = How.Name, Using = "username")]

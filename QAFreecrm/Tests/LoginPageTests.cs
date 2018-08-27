@@ -26,6 +26,9 @@ namespace QAFreecrm.Tests
         [SetUp]
         public void SetUp()
         {
+            //Get the value from NUnit-console --params 
+            //e.g. nunit3-console.exe --params:Browser=Firefox \SeleniumNUnitParam.dll
+            //If nothing specified, test will run in Chrome browser
             var browserType = TestContext.Parameters.Get("Browser", "Chrome");
             //Parse the browser Type, since its Enum
             _browserType = (BrowserType)Enum.Parse(typeof(BrowserType), browserType);

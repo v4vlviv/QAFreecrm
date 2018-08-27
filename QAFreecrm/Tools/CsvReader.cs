@@ -42,4 +42,26 @@ namespace QAFreecrm.Tools
             reader.Close();
         }
     }
+
+//    node
+//{
+//    stage 'Checkout code'
+//        git 'https://github.com/v4vlviv/QAFreecrm.git'
+//    stage 'Restore NUget'
+//        bat '"D:\\JenkinsHelper\\nuget.exe" restore QAFreecrm.sln'
+//    stage'Build'
+//        bat '"C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe" QAFreecrm.sln'
+//}
+
+//stage'Parralel Test'
+//    parallel firefox:{
+//        node{
+//            bat '"D:\\JenkinsHelper\\NUnit.Console-3.8.0\\nunit3-console.exe" --params:Browser=Firefox "D:\\C#_TestProject\\QAFreecrm\\QAFreecrm\\bin\\Debug\\QAFreecrm.dll"'
+//        }
+//    }, chrome:{
+//        node{
+//            bat '"D:\\JenkinsHelper\\NUnit.Console-3.8.0\\nunit3-console.exe" --params:Browser=Chrome "D:\\C#_TestProject\\QAFreecrm\\QAFreecrm\\bin\\Debug\\QAFreecrm.dll"'    
+//        }
+//    }
+        
 }
